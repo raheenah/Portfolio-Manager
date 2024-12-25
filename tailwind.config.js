@@ -1,0 +1,36 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        background: "#f3fdf7",
+        card: "#ffffff",
+        cardBorder: "#d4e9d5",
+        primaryText: "#0b3d0b",
+        secondaryText: "#1b5121",
+        mutedText: "#6b8e6b",
+        buttonPrimary: "#2f8f2f",
+        buttonPrimaryHover: "#267026",
+        buttonSecondary: "#4b5563",
+        buttonSecondaryHover: "#374151",
+        accent: "#21a021",
+        accentHover: "#1c8c1c",
+        danger: "#dc2626",
+        dangerHover: "#b91c1c",
+        success: "#16a34a",
+        successHover: "#15803d",
+        warning: "#fbbf24",
+        warningHover: "#f59e0b",
+        inputBackground: "#f0f9f4",
+        inputBorder: "#d4e9d5",
+        inputPlaceholder: "#9ca3af",
+        navBackground: "#0a2c0a",
+        navText: "#f8fafc",
+        footerBackground: "#0b3d0b",
+        footerText: "#e5e7eb",
+      },
+    },
+  },
+  plugins: [],
+};
