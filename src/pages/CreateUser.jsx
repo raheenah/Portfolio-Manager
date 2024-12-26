@@ -7,6 +7,8 @@ const CreateUserPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+const [username, setUsername] = useState("")
+
 
   const handleEmailChange = (email) => {
     setEmail(email);
@@ -31,9 +33,14 @@ const CreateUserPage = () => {
       } else {
         if (password != confirmPassword) {
           alert("Please confirm your chosen password");
-        } else {
+        }
+        else if (username === "") {
+          alert("Please input a username")
+        }
+        else {
           const userDetails = {
             email: email,
+            username: username,
             password: password,
           };
           console.log(userDetails);
@@ -55,8 +62,19 @@ const CreateUserPage = () => {
             <label className='font-extrabold text-primaryText'>Email</label>
             <input
               type='email'
+              required
               value={email}
               onChange={(e) => handleEmailChange(e.target.value)}
+              className='bg-inputBackground w-full rounded-full h-10 focus:outline-none p-3 focus:border-b-2  focus:border-b-buttonSecondary'
+            />
+          </div>
+          <div className='w-full flex flex-col gap-1'>
+            <label className='font-extrabold text-primaryText'>Username</label>
+            <input
+              type='text'
+              value={username}
+              required
+              onChange={(e) => setUsername(e.target.value)}
               className='bg-inputBackground w-full rounded-full h-10 focus:outline-none p-3 focus:border-b-2  focus:border-b-buttonSecondary'
             />
           </div>
@@ -64,6 +82,7 @@ const CreateUserPage = () => {
             <label className='font-extrabold text-primaryText'>Password</label>
             <input
               type='password'
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className='bg-inputBackground w-full rounded-full h-10 focus:outline-none p-3 focus:border-b-2  focus:border-b-buttonSecondary'
@@ -75,6 +94,7 @@ const CreateUserPage = () => {
             </label>
             <input
               type='password'
+              required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className='bg-inputBackground w-full rounded-full h-10 focus:outline-none p-3 focus:border-b-2  focus:border-b-buttonSecondary'
@@ -83,7 +103,7 @@ const CreateUserPage = () => {
           <button
             aria-label='Login'
             onClick={handleCreateUser}
-            className='bg-buttonSecondary mt-2 hover:bg-buttonSecondaryHover text-inputBackground font-bold w-[50%] rounded-full h-10'
+            className='bg-buttonSecondary mt-2 hover:bg-buttonSecondaryHover text-inputBackground font-bold w-fit px-4 rounded-full h-10 '
           >
             Create Account
           </button>
@@ -92,7 +112,7 @@ const CreateUserPage = () => {
       <p>
         Already have an account?&nbsp;
         <NavLink
-          to={"/"}
+          to={"/login"}
           className='text-buttonSecondary hover:text-buttonSecondaryHover font-bold'
         >
           Log in
